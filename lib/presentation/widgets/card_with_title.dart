@@ -28,7 +28,7 @@ class CardWithTitle extends StatelessWidget {
               title,
               style: const TextStyle(
                   fontFamily: 'Leckerli One',
-                  fontSize: 26,
+                  fontSize: 28,
                   color: PaletaDeCores.title),
             ),
             child
