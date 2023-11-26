@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project_front/core/paletadecores.dart';
+import 'package:project_front/presentation/views/register_page.dart';
 
+import '../widgets/button.dart';
 import '../widgets/card_with_title.dart';
 import '../widgets/input_field.dart';
 
@@ -14,7 +16,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: PaletaDeCores.background,
       body: Center(
@@ -24,28 +25,40 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(
               height: 30,
             ),
-            const InputField(),
+            InputField(
+              hint: "Informe o usuario",
+              onChanged: (value) => value,
+            ),
             const SizedBox(
               height: 20,
             ),
-            const InputField(),
-            const SizedBox(
-              height: 30,
-            ),
-            Container(
-              width: size.width,
-              height: size.height * 0.06,
-              decoration: BoxDecoration(
-                  color: PaletaDeCores.button,
-                  borderRadius: BorderRadius.circular(8)),
-              child: const Center(child: Text("Entrar")),
+            InputField(
+              hint: "Informe a senha",
+              onChanged: (value) => value,
             ),
             const SizedBox(
               height: 30,
             ),
+            Button(
+              title: "Entrar",
+              onPressed: (){},
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const RegisterPage()));
+                },
+                child: const Text("Não possui conta? Cadastre-se!"))
           ]),
         ),
       ),
     );
   }
 }
+
+
