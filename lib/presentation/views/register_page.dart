@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project_front/presentation/widgets/card_with_title.dart';
+import 'package:project_front/presentation/widgets/input_field.dart';
 
 import '../../core/paletadecores.dart';
+import '../widgets/button.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -19,7 +21,36 @@ class _RegisterPageState extends State<RegisterPage> {
           child: CardWithTitle(
               title: "Cadastro",
               child: Column(
-                children: [Container()],
+                children: [
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  InputField(
+                    hint: "Informe o nome",
+                    onChanged: (value) => value,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  InputField(
+                    hint: "Informe o usuario",
+                    onChanged: (value) => value,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  InputField(
+                    hint: "Informe a senha",
+                    onChanged: (value) => value,
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Button(
+                    title: "Salvar",
+                    onPressed: () {},
+                  ),
+                ],
               ))),
     );
   }
