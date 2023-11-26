@@ -78,6 +78,26 @@ flutter:
     - family: Leckerli One
       fonts:
         - asset: assets/font/LeckerliOne-Regular.ttf
+    - family: Poppins
+      fonts:
+        - asset: assets/font/Poppins-SemiBold.ttf
+        - asset: assets/font/Poppins-Medium.ttf
+        - asset: assets/font/Poppins-Regular.ttf
+        - asset: assets/font/Poppins-ExtraBold.ttf
+        - asset: assets/font/Poppins-Bold.ttf
+        - asset: assets/font/Poppins-Black.ttf
+        - asset: assets/font/Poppins-SemiBoldItalic.ttf
+          style: italic
+        - asset: assets/font/Poppins-Italic.ttf
+          style: italic
+        - asset: assets/font/Poppins-BlackItalic.ttf
+          style: italic
+        - asset: assets/font/Poppins-MediumItalic.ttf
+          style: italic
+        - asset: assets/font/Poppins-BoldItalic.ttf
+          style: italic
+        - asset: assets/font/Poppins-ExtraBoldItalic.ttf
+          style: italic
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
