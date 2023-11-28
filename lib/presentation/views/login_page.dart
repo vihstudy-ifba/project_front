@@ -25,23 +25,30 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(
               height: 30,
             ),
-            InputField(
-              hint: "Informe o usuario",
-              onChanged: (value) => value,
-            ),
+            const InputField(
+                child: TextField(
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: "Informe o usuário",
+                  hintStyle: TextStyle(fontStyle: FontStyle.italic)),
+            )),
             const SizedBox(
               height: 20,
             ),
-            InputField(
-              hint: "Informe a senha",
-              onChanged: (value) => value,
-            ),
+            const InputField(
+                child: TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: "Informe a senha",
+                  hintStyle: TextStyle(fontStyle: FontStyle.italic)),
+            )),
             const SizedBox(
               height: 30,
             ),
             Button(
               title: "Entrar",
-              onPressed: (){},
+              onPressed: () {},
             ),
             const SizedBox(
               height: 15,
@@ -59,6 +66,4 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-}
-
-
+} 

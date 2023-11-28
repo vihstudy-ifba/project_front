@@ -3,6 +3,8 @@ import 'package:project_front/presentation/widgets/card_with_title.dart';
 import 'package:project_front/presentation/widgets/input_field.dart';
 
 import '../../core/paletadecores.dart';
+import '../../repository/user_repository.dart';
+import '../controllers/register_controller.dart';
 import '../widgets/button.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -13,6 +15,9 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  RegisterController controller =
+      RegisterController(repository: UserRepository());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,29 +31,44 @@ class _RegisterPageState extends State<RegisterPage> {
                     height: 30,
                   ),
                   InputField(
-                    hint: "Informe o nome",
-                    onChanged: (value) => value,
-                  ),
+                      child: TextField(
+                    onChanged: (value) => controller.usuario!.nome = value,
+                    decoration: const InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Informe o nome do usuário",
+                        hintStyle: TextStyle(fontStyle: FontStyle.italic)),
+                  )),
                   const SizedBox(
                     height: 20,
                   ),
                   InputField(
-                    hint: "Informe o usuario",
-                    onChanged: (value) => value,
-                  ),
+                      child: TextField(
+                    onChanged: (value) => controller.usuario!.usuario = value,
+                    decoration: const InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Informe o usuario",
+                        hintStyle: TextStyle(fontStyle: FontStyle.italic)),
+                  )),
                   const SizedBox(
                     height: 20,
-                  ),
+                  ),  
                   InputField(
-                    hint: "Informe a senha",
-                    onChanged: (value) => value,
-                  ),
+                      child: TextField(
+                    onChanged: (value) => controller.usuario!.senha = value,
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Informe a senha",
+                        hintStyle: TextStyle(fontStyle: FontStyle.italic)),
+                  )),
                   const SizedBox(
                     height: 30,
                   ),
                   Button(
                     title: "Salvar",
-                    onPressed: () {},
+                    onPressed: () async {
+                      await controller.cadastrarUsuario();
+                    },
                   ),
                 ],
               ))),

@@ -4,11 +4,10 @@ import '../../core/paletadecores.dart';
 
 class InputField extends StatelessWidget {
   const InputField({
-    super.key, required this.hint, required this.onChanged,
+    super.key, required this.child,
   });
 
-  final String hint;
-  final Function onChanged;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +21,7 @@ class InputField extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(left: 10, right: 10),
         child: Center(
-          child: TextField(
-            onChanged: onChanged as Function(String), 
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              hintText: hint,
-              hintStyle: const TextStyle(
-                fontStyle: FontStyle.italic
-              )),
-          ),
+          child: child
         ),
       ),
     );
