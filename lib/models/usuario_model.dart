@@ -2,10 +2,10 @@ import 'dart:convert';
 
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 class UsuarioModel {
-  final int? id;
-  final String? nome;
-  final String? usuario;
-  final String? senha;
+  int? id;
+  String? nome;
+  String? usuario;
+  String? senha;
   
   UsuarioModel({
     this.id,
