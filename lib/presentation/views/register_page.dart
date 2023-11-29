@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_front/presentation/views/login_page.dart';
 import 'package:project_front/presentation/widgets/card_with_title.dart';
 import 'package:project_front/presentation/widgets/input_field.dart';
 
@@ -67,7 +68,47 @@ class _RegisterPageState extends State<RegisterPage> {
                   Button(
                     title: "Salvar",
                     onPressed: () async {
-                      await controller.cadastrarUsuario();
+                      bool cadastrou = await controller.cadastrarUsuario();
+                    
+                      if (!mounted) return;
+
+                      if(cadastrou){
+                        return showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              title: const Text("Eba!"),
+                              content: const Text(
+                                  "Usuário salvo com sucesso!"),
+                              actions: <Widget>[
+                                TextButton(
+                                  child: const Text("Ok"),
+                                  onPressed: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
+                                  },
+                                ),
+                              ],
+                            );
+                          });
+                      }
+
+                      return showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              title: const Text("Poxa!"),
+                              content: const Text(
+                                  "Ocorreu um erro ao tentar salvar o usuário, por favor tente novamente!"),
+                              actions: <Widget>[
+                                TextButton(
+                                  child: const Text("Ok"),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                              ],
+                            );
+                          });
                     },
                   ),
                 ],
