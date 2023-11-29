@@ -14,7 +14,7 @@ class RegisterController {
   Future cadastrarUsuario() async {
     try {
       usuario!.id = 0;
-      await repository.criarUsuario(usuario!);
+      return await repository.criarUsuario(usuario!);
     } catch (e) {
       rethrow;
     }
